@@ -1,0 +1,5 @@
+aubo_robot/aubo_description
+/home/hy/aubo_i5/devel/.private/aubo_description/cmake.lock /home/hy/aubo_i5/devel/./cmake.lock
+/home/hy/aubo_i5/devel/.private/aubo_description/lib/pkgconfig/aubo_description.pc /home/hy/aubo_i5/devel/lib/pkgconfig/aubo_description.pc
+/home/hy/aubo_i5/devel/.private/aubo_description/share/aubo_description/cmake/aubo_descriptionConfig.cmake /home/hy/aubo_i5/devel/share/aubo_description/cmake/aubo_descriptionConfig.cmake
+/home/hy/aubo_i5/devel/.private/aubo_description/share/aubo_description/cmake/aubo_descriptionConfig-version.cmake /home/hy/aubo_i5/devel/share/aubo_description/cmake/aubo_descriptionConfig-version.cmake

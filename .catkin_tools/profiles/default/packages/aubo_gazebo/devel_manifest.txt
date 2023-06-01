@@ -1,0 +1,5 @@
+aubo_robot/aubo_gazebo
+/home/hy/aubo_i5/devel/.private/aubo_gazebo/cmake.lock /home/hy/aubo_i5/devel/./cmake.lock
+/home/hy/aubo_i5/devel/.private/aubo_gazebo/lib/pkgconfig/aubo_gazebo.pc /home/hy/aubo_i5/devel/lib/pkgconfig/aubo_gazebo.pc
+/home/hy/aubo_i5/devel/.private/aubo_gazebo/share/aubo_gazebo/cmake/aubo_gazeboConfig.cmake /home/hy/aubo_i5/devel/share/aubo_gazebo/cmake/aubo_gazeboConfig.cmake
+/home/hy/aubo_i5/devel/.private/aubo_gazebo/share/aubo_gazebo/cmake/aubo_gazeboConfig-version.cmake /home/hy/aubo_i5/devel/share/aubo_gazebo/cmake/aubo_gazeboConfig-version.cmake

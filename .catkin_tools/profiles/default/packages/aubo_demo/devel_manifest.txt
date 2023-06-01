@@ -1,0 +1,6 @@
+aubo_robot/aubo_demo
+/home/hy/aubo_i5/devel/.private/aubo_demo/cmake.lock /home/hy/aubo_i5/devel/./cmake.lock
+/home/hy/aubo_i5/devel/.private/aubo_demo/lib/aubo_demo/MoveGroupInterface_To_Noetic /home/hy/aubo_i5/devel/lib/aubo_demo/MoveGroupInterface_To_Noetic
+/home/hy/aubo_i5/devel/.private/aubo_demo/lib/pkgconfig/aubo_demo.pc /home/hy/aubo_i5/devel/lib/pkgconfig/aubo_demo.pc
+/home/hy/aubo_i5/devel/.private/aubo_demo/share/aubo_demo/cmake/aubo_demoConfig.cmake /home/hy/aubo_i5/devel/share/aubo_demo/cmake/aubo_demoConfig.cmake
+/home/hy/aubo_i5/devel/.private/aubo_demo/share/aubo_demo/cmake/aubo_demoConfig-version.cmake /home/hy/aubo_i5/devel/share/aubo_demo/cmake/aubo_demoConfig-version.cmake

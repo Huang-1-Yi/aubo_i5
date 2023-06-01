@@ -1,0 +1,79 @@
+1.opencv依赖目前只覆盖安装，未卸载
+
+git clone https://github.com/opencv/opencv.git
+
+
+安装opencv
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+ -D CMAKE_INSTALL_PREFIX=/usr/local \
+ -D INSTALL_PYTHON_EXAMPLES=ON \
+ -D INSTALL_C_EXAMPLES=ON \
+ -D OPENCV_EXTRA_MODULES_PATH=/home/hy/biaoding/opencv_contrib/modules \
+ -D PYTHON3_EXECUTABLE=/usr/bin/python3 \
+ -D PYTHON_EXECUTABLE=/usr/bin/python \
+ -D WITH_TBB=ON \
+ -D WITH_V4L=ON \
+ -D WITH_QT=ON \
+ -D WITH_GTK=ON \
+ -D WITH_VTK=ON \
+ -D WITH_OPENGL=ON \
+ -D WITH_OPENMP=ON\
+ -D BUILD_EXAMPLES=ON \
+ -D WITH_CUDA=ON \
+ -D BUILD_TIFF=ON \
+ -D ENABLE_PRECOMPILED_HEADERS=OFF\
+ -D INSTALL_PYTHON_EXAMPLES=ON \
+ -D OPENCV_GENERATE_PKGCONFIG=ON \
+ -DOPENCV_ENABLE_NONFREE=ON \
+ -D CUDA_nppicom_LIBRARY=stdc++ \
+ -D CUDA_ARCH_BIN="8.6" ..
+ 
+ sudo make -j6
+ 
+ 
+ sudo make install
+ 
+ sudo gedit /etc/ld.so.conf.d/opencv.conf
+ /usr/local/lib
+sudo ldconfig 
+ sudo gedit ~/.bashrc
+#opencv4.2.0环境变量
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+
+https://blog.csdn.net/u013454780/article/details/128357962
+
+2.第一个easy_handeye功能包直接catkin_make
+
+3.第二个功能包放进来
+安装visp
+sudo apt-get install ros-noetic-visp
+
+catkin_make --pkg visp_hand2eye_calibration
+eye没问题
+
+
+
+4.aruco放进来，准备编译
+
+生成aruco的lib
+https://blog.csdn.net/m0_50848587/article/details/114989327
+
+unzip aruco-3.1.12.zip
+cd aruco-3.1.12
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+
+修改src/aruco_ros-noetic/aruco中的set(OpenCV_LIBRARIES /usr/local/lib/)
+catkin_make --pkg aruco_ros
+
+
+
+备注：
+Ubuntu20.04中Realsense的安装与使用
+https://zhuanlan.zhihu.com/p/626664186
+

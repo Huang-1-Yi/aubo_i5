@@ -1,0 +1,49 @@
+<launch>
+    <arg name="namespace_prefix" default="easy_handeye" />
+
+    <arg name="markerSize" doc="Size of the ArUco marker used, in meters" default="0.1" />
+    <arg name="markerId" doc="The ID of the ArUco marker used" default="6"/>
+    
+    <arg name="marker_frame"    default="aruco_marker_frame"/>
+    <arg name="ref_frame"       default="camera_color_optical_frame"/> 
+
+
+
+    <!-- 1. start the Realsense435i -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+
+    <!-- 2. start ArUco -->
+    <node pkg="aruco_ros" type="single" name="aruco_single">
+        <remap from="/camera_info" to="/camera/color/camera_info" />
+        <remap from="/image" to="/camera/color/image_raw" />
+        <param name="image_is_rectified" value="true"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="$(arg markerId)"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/> 
+        <param name="camera_frame"       value="camera_color_optical_frame"/>
+        <param name="marker_frame"       value="$(arg marker_frame)" />
+
+    </node>
+
+
+    <!-- 3. start the robot -->
+    <include file="$(find kinova_bringup)/launch/kinova_robot.launch" /> -->
+    <include file="$(find j2s7s300_moveit_config)/launch/j2s7s300_demo.launch" /> -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+
+</node>
+    <!-- 4. start easy_handeye -->
+    <include file="$(find easy_handeye)/launch/calibrate.launch" >
+        <arg name="namespace_prefix" value="$(arg namespace_prefix)" />
+        <arg name="eye_on_hand" value="true" />
+
+        <arg name="tracking_base_frame" value="camera_color_optical_frame" />
+        <arg name="tracking_marker_frame" value="aruco_marker_frame" />
+        <arg name="robot_base_frame" value="j2s7s300_link_base" />
+        <arg name="robot_effector_frame" value="j2s7s300_end_effector" />
+
+        <arg name="freehand_robot_movement" value="false" />
+
+    </include> 
+    
+</launch>

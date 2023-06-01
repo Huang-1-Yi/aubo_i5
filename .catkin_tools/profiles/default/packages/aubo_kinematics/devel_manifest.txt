@@ -1,0 +1,11 @@
+aubo_robot/aubo_kinematics
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/cmake.lock /home/hy/aubo_i5/devel/./cmake.lock
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/libaubo_i10_moveit_kinematic_plugin.so /home/hy/aubo_i5/devel/lib/libaubo_i10_moveit_kinematic_plugin.so
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/libaubo_i10_kinematic.so /home/hy/aubo_i5/devel/lib/libaubo_i10_kinematic.so
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/libaubo_i3_moveit_kinematic_plugin.so /home/hy/aubo_i5/devel/lib/libaubo_i3_moveit_kinematic_plugin.so
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/libaubo_i3_kinematic.so /home/hy/aubo_i5/devel/lib/libaubo_i3_kinematic.so
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/libaubo_i5_kinematic.so /home/hy/aubo_i5/devel/lib/libaubo_i5_kinematic.so
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/libaubo_i5_moveit_kinematic_plugin.so /home/hy/aubo_i5/devel/lib/libaubo_i5_moveit_kinematic_plugin.so
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/lib/pkgconfig/aubo_kinematics.pc /home/hy/aubo_i5/devel/lib/pkgconfig/aubo_kinematics.pc
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/share/aubo_kinematics/cmake/aubo_kinematicsConfig.cmake /home/hy/aubo_i5/devel/share/aubo_kinematics/cmake/aubo_kinematicsConfig.cmake
+/home/hy/aubo_i5/devel/.private/aubo_kinematics/share/aubo_kinematics/cmake/aubo_kinematicsConfig-version.cmake /home/hy/aubo_i5/devel/share/aubo_kinematics/cmake/aubo_kinematicsConfig-version.cmake
