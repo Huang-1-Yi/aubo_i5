@@ -1,0 +1,159 @@
+在工作空间的src中
+clone git clone https://github.com/AuboRobot/aubo_robot.git -b noetic
+cd ..
+rosdep install -y --from-paths . --ignore-src --rosdistro noetic -r
+
+可能要安装的有——备注1
+可能需要修改eigen——备注2
+可能需要安装libprotobuf9——备注3
+catkin_make 成功
+
+
+更改位置后改驱动：
+1.工作空间内
+source devel/setup.bash
+roscd aubo_driver/lib/lib64/
+2.pwd得到/home/hy/aubo_i5/src/aubo_robot/aubo_driver/lib/lib64
+3.sudo gedit /etc/ld.so.conf.d/aubo_driver.conf创建并打开文件
+4.然后写入：
+/home/hy/aubo_i5/src/aubo_robot/aubo_driver/lib/lib64
+/home/hy/aubo_i5/src/aubo_robot/aubo_driver/lib/lib64/aubocontroller
+/home/hy/aubo_i5/src/aubo_robot/aubo_driver/lib/lib64/config
+/home/hy/aubo_i5/src/aubo_robot/aubo_driver/lib/lib64/log4cplus
+5.更新
+sudo ldconfig
+
+在工作空间内测试
+source devel/setup.bash
+roslaunch aubo_e5_moveit_config moveit_planning_execution.launch robot_ip:=127.0.0.1 
+
+
+备注1:
+roslaunch出问题，
+这些是依赖，多运行几次
+sudo apt install -y ros-noetic-moveit*
+sudo apt install -y ros-noetic-moveit-visual-tools
+sudo apt install -y ros-noetic-moveit-simple-controller-manager
+sudo apt install -y ros-noetic-industrial-*
+sudo apt install -y ros-noetic-gazebo-ros
+sudo apt install -y ros-noetic-gazebo-plugins
+sudo apt install -y ros-noetic-gazebo-ros-control
+sudo apt install -y ros-noetic-rviz-visual-tools
+sudo apt install -y ros-noetic-position-controllers
+sudo apt install -y ros-noetic-joint-state-controller
+sudo apt install -y ros-noetic-joint-trajectory-controller
+
+
+网上提到一种方法：
+touch deps.sh
+sudo gedit deps.sh
+依赖放进去
+sh deps.sh
+
+
+备注2：
+sudo ln -sf /usr/include/eigen3/Eigen/ /usr/include/Eigen
+sudo ln -sf /usr/include/eigen3/unsupported/ /usr/include/unsupported
+
+备注3：
+wget http://archive.ubuntu.com/ubuntu/pool/main/p/protobuf/libprotobuf9v5_2.6.1-1.3_amd64.deb
+sudo dpkg -i libprotobuf9v5_2.6.1-1.3_amd64.deb
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+以下内容复现不需要看
+
+
+记得sudo apt install vim，用得上
+
+参考https://www.codenong.com/cs109837416/，catkin_make出错，完成以下步骤：
+
+sudo apt-get install ros-noetic-ros-controllers ros-noetic-gazebo* ros-noetic-moveit* ros-noetic-industrial-core
+eigen 库映射到 /usr/include 路径
+sudo ln -sf /usr/include/eigen3/Eigen /usr/include/Eigen
+sudo ln -sf /usr/include/eigen3/unsupported/ /usr/include/unsupported
+
+catkin_make  //成功make
+
+否则————
+sudo apt-get install gdebi    //安装gdebi
+wget http://archive.ubuntu.com/ubuntu/pool/main/p/protobuf/libprotobuf9v5_2.6.1-1.3_amd64.deb     //下载so.9
+sudo gdebi ./libprotobuf9v5_2.6.1-1.3_amd64.deb   //安装下载的so.9
+catkin_make  //成功make
+
+否则————赋予权限
+cd src/aubo_robot/UpdateMoveitLib/Kinetic/
+修改Update.sh，insert换成noetic，：wq退出
+chmod +x Update.sh
+sudo ./Update.sh
+
+
+
+    
+    
+    
+
+lib库环境变量配置
+https://blog.csdn.net/aubo_academy/article/details/123181287?spm=1001.2014.3001.5502
+
+从工作空间
+cd src/aubo_robot/aubo_driver/lib/lib64
+pwd————复制结果：/home/hy/aubo527/src/aubo_robot/aubo_driver/lib/lib64
+
+sudo gedit /etc/ld.so.conf.d/aubo_driver.conf
+拷贝以下内容：
+/home/hy/aubo527/src/aubo_robot/aubo_driver/lib/lib64
+/home/hy/aubo527/src/aubo_robot/aubo_driver/lib/lib64/aubocontroller
+/home/hy/aubo527/src/aubo_robot/aubo_driver/lib/lib64/config
+/home/hy/aubo527/src/aubo_robot/aubo_driver/lib/lib64/log4cplus
+保存，然后sudo ldconfig
+
+重新catkin make
+
+
+
+
+
+
+
+
+
