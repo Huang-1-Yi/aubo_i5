@@ -10,7 +10,7 @@ catkin_make 失败时:
 catkin_make 成功时:
 在工作空间内测试
 source devel/setup.bash
-roslaunch aubo_e5_moveit_config moveit_planning_execution.launch robot_ip:=127.0.0.1 
+roslaunch aubo_i10_moveit_config moveit_planning_execution.launch robot_ip:=127.0.0.1 
 可能要安装的有——备注3
 
 备注1：
