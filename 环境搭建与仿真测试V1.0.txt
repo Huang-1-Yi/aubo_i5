@@ -28,8 +28,26 @@ source devel/setup.bash
 roslaunch aubo_e5_moveit_config moveit_planning_execution.launch robot_ip:=127.0.0.1 
 
 
-备注1:
-roslaunch出问题，
+备注1：
+catkin_make报错如下：
+fatal error: Eigen/Geometry: 没有那个文件或目录
+   46 | #include <Eigen/Geometry>
+解决：
+sudo ln -sf /usr/include/eigen3/Eigen/ /usr/include/Eigen
+sudo ln -sf /usr/include/eigen3/unsupported/ /usr/include/unsupported
+
+备注2：
+catkin_make报错如下：
+make[2]: *** [aubo_robot/aubo_driver/CMakeFiles/aubo_driver.dir/build.make:101：/home/hy/aubo/devel/lib/aubo_driver/aubo_driver] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:4761：aubo_robot/aubo_driver/CMakeFiles/aubo_driver.dir/all] 错误 2
+make: *** [Makefile:141：all] 错误 2
+Invoking "make -j6 -l6" failed
+解决：
+wget http://archive.ubuntu.com/ubuntu/pool/main/p/protobuf/libprotobuf9v5_2.6.1-1.3_amd64.deb
+sudo dpkg -i libprotobuf9v5_2.6.1-1.3_amd64.deb
+
+备注3:
+因为环境不齐全，roslaunch出问题，
 这些是依赖，多运行几次
 sudo apt install -y ros-noetic-moveit*
 sudo apt install -y ros-noetic-moveit-visual-tools
@@ -42,22 +60,14 @@ sudo apt install -y ros-noetic-rviz-visual-tools
 sudo apt install -y ros-noetic-position-controllers
 sudo apt install -y ros-noetic-joint-state-controller
 sudo apt install -y ros-noetic-joint-trajectory-controller
-
-
-网上提到一种方法：
+网上提到一种sudo apt install方法，暂时还没写：
 touch deps.sh
 sudo gedit deps.sh
 依赖放进去
 sh deps.sh
 
 
-备注2：
-sudo ln -sf /usr/include/eigen3/Eigen/ /usr/include/Eigen
-sudo ln -sf /usr/include/eigen3/unsupported/ /usr/include/unsupported
 
-备注3：
-wget http://archive.ubuntu.com/ubuntu/pool/main/p/protobuf/libprotobuf9v5_2.6.1-1.3_amd64.deb
-sudo dpkg -i libprotobuf9v5_2.6.1-1.3_amd64.deb
     
 
 
